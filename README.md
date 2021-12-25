@@ -5,3 +5,9 @@ next task is...
 - gameclear 
 - 0 opener
 - timeup
+ 
+for execute...
+```
+make
+java MS
+```
