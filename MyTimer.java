@@ -13,22 +13,16 @@ public class MyTimer extends JFrame implements ActionListener{
 	private long expiredAt;
 	Timer timer;
 	private JLabel label;
-	JPanel p;
+	GameFrame frame;
 
 	MyTimer(int minutes, GameFrame frame){
 		period = minutes*60000;
 		label = new JLabel();
 		label.setFont(new Font(label.getFont().getFontName(),Font.BOLD,20));
-
+		this.frame=frame;
 		updateLabel(period);
-		p = new JPanel();
-		p.setLayout(new BorderLayout());
-		frame.add(p, BorderLayout.NORTH);
-		p.add(label, BorderLayout.EAST);
+		frame.p2.add(label, BorderLayout.EAST);
 		setTitle(minutes + ":" + this.getClass().getName());
-		
-		// flame.add(label, BorderLayout.CENTER);
-		// frame.add(label, BorderLayout.NORTH);
 		timer = new Timer(1000/*ms*/, this);
 		timer.start();
 		expiredAt = System.currentTimeMillis()+period;
@@ -41,8 +35,9 @@ public class MyTimer extends JFrame implements ActionListener{
 			remainingTime += 500;	
 			label.setText(min + ":" + String.format("%02d",sec));
 		}else{
-			label.setText("終了 "+ min + ":" + String.format("%02d",sec));
+			label.setText("Times Up! "+ min + ":" + String.format("%02d",sec));
 			timer.stop();
+			GameOver go = new GameOver(frame);
 		}
 	}
 	public void actionPerformed(ActionEvent e){

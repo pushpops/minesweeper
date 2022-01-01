@@ -50,7 +50,7 @@ public class Ban {
 		}
 	}
 
-	int numOfBomb(){
+	int getNumOfBomb(){
 		return count;
 	}
 

@@ -4,7 +4,6 @@ import java.awt.event.*;
 
 class Menu extends JFrame implements ActionListener{
 	Menu(){	 
-     
       setTitle("menu");
       setSize(300,200);
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
